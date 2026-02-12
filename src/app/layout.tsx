@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Oswald, Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import "./globals.css";
+import Footer from "@/components/Footer";
 
 // Konfigurujemy fonty
 const oswald = Oswald({
@@ -32,6 +33,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${oswald.variable} antialiased`}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
