@@ -1,65 +1,42 @@
-import Image from "next/image";
+import Logo from "@/components/Logo";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    // Tło ustawiamy na sztywno HEX-em, tekst na Ivory
+    <main className="flex min-h-screen flex-col items-center justify-center bg-[#1E2022] text-[#F5F3EE] font-sans pt-20">
+
+      {/* KONTENER LOGO */}
+      <div className="flex items-center gap-6">
+
+        {/* LOGO: Dzięki stroke-current w Logo.tsx, linie przejmą kolor text-[#F5F3EE] */}
+        <div className="w-24 h-24 text-[#F5F3EE]">
+          <Logo className="w-full h-full drop-shadow-2xl" />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+
+        {/* NAPIS */}
+        <h1 className="font-oswald text-8xl font-bold tracking-tight uppercase leading-none">
+          Luma <span className="text-[#FF4D00]">Lab</span>
+        </h1>
+      </div>
+
+      <p className="mt-8 text-xl opacity-70 font-light tracking-[0.2em] uppercase">
+        Engineering & Laser Cut Design
+      </p>
+
+      {/* BUTTON "DON PREZES" */}
+      <button className="
+        mt-12 px-12 py-5 
+        bg-[#FF4D00] text-white 
+        font-oswald font-bold text-xl uppercase tracking-widest 
+        rounded-sm
+        transition-all duration-300 ease-out
+        hover:bg-[#ff6a2b] 
+        hover:-translate-y-1 hover:shadow-[0_10px_30px_-10px_rgba(255,77,0,0.6)]
+        active:translate-y-0 active:shadow-none
+      ">
+        Rozpocznij Projekt
+      </button>
+
+    </main>
   );
 }
