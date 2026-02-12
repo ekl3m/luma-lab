@@ -20,6 +20,7 @@ export default function Footer() {
                 <div className="flex flex-col gap-4">
                     <h4 className="font-oswald text-white uppercase tracking-widest mb-2">Menu</h4>
                     <Link href="/oferta" className="hover:text-[#FF4D00] transition-colors">Oferta</Link>
+                    <Link href="/technologia" className="hover:text-[#FF4D00] transition-colors">Technologia</Link>
                     <Link href="/realizacje" className="hover:text-[#FF4D00] transition-colors">Realizacje</Link>
                     <Link href="/kontakt" className="hover:text-[#FF4D00] transition-colors">Kontakt</Link>
                 </div>
@@ -27,7 +28,8 @@ export default function Footer() {
                 {/* Kolumna 3: Kontakt */}
                 <div className="flex flex-col gap-4">
                     <h4 className="font-oswald text-white uppercase tracking-widest mb-2">Kontakt</h4>
-                    <p>Eryk Klemencki</p>
+                    <p>Ul. Rzgowska 109, Łódź, Polska</p>
+                    <p>+48 662 098 840</p>
                     <a href="mailto:kontakt@lumalab.pl" className="hover:text-[#FF4D00] transition-colors">kontakt@lumalab.pl</a>
                     {/* Tu wstawisz swój numer jak będziesz gotowy */}
                 </div>
