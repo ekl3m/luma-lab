@@ -45,7 +45,7 @@ export default function OfertaPage() {
     return (
         <main className="bg-[#1E2022] text-[#F5F3EE] min-h-screen pt-32 pb-20 px-6 font-sans">
             <div className="max-w-5xl mx-auto">
-                {/* NAGŁÓWEK Z PODPISEM VAT */}
+                {/* HEADER WITH VAT INFO */}
                 <div className="text-center mb-16">
                     <motion.h1
                         initial={{ opacity: 0, y: -20 }}
@@ -76,7 +76,7 @@ export default function OfertaPage() {
                         >
                             <div className="grid grid-cols-1 md:grid-cols-[300px_1fr] min-h-[300px]">
 
-                                {/* LEWA STRONA (Nagłówek) */}
+                                {/* LEFT SIDE (HEADER) */}
                                 <div className="bg-white/5 p-8 flex flex-col justify-between border-b md:border-b-0 md:border-r border-white/10 group-hover:bg-[#FF4D00]/10 transition-colors">
                                     <div>
                                         <span className="font-oswald text-6xl text-white/10 font-bold block mb-4 group-hover:text-[#FF4D00]/20 transition-colors">
@@ -95,7 +95,7 @@ export default function OfertaPage() {
                                     </div>
                                 </div>
 
-                                {/* PRAWA STRONA (Detale) */}
+                                {/* RIGHT SIDE (DETAILS) */}
                                 <div className="p-8 md:p-10 flex flex-col justify-center">
                                     <ul className="space-y-4">
                                         {service.details.map((item, i) => {

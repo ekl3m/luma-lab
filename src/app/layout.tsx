@@ -4,10 +4,10 @@ import Navbar from "@/components/Navbar";
 import "./globals.css";
 import Footer from "@/components/Footer";
 
-// Konfigurujemy fonty
+// Font configuration using next/font
 const oswald = Oswald({
   subsets: ["latin"],
-  variable: "--font-oswald", // To nazwa zmiennej, którą łapiemy w CSS
+  variable: "--font-oswald",
   display: "swap",
 });
 
@@ -29,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pl">
-      {/* Dodajemy zmienne fontów do <body> */}
+      {/* Add font variables to <body> */}
       <body className={`${inter.variable} ${oswald.variable} antialiased`}>
         <Navbar />
         {children}

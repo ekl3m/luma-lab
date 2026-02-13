@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-// Przykładowe projekty pasujące do Twojego sprzętu
+// Example projects - placeholder data, replace with real projects and images
 const projects = [
     { id: 1, title: "Obudowa IoT", cat: "Druk 3D (ASA)" },
     { id: 2, title: "Statuetka Nagrodowa", cat: "Laser (Plexi + Drewno)" },
@@ -30,12 +30,12 @@ export default function RealizacjePage() {
                             whileHover={{ y: -5 }}
                             className="group relative aspect-square bg-white/5 border border-white/10 overflow-hidden cursor-pointer"
                         >
-                            {/* Placeholder - tu wrzucisz swoje foty */}
+                            {/* Placeholder image */}
                             <div className="absolute inset-0 flex items-center justify-center text-white/10 font-oswald text-6xl font-bold group-hover:scale-110 transition-transform duration-500">
                                 LUMA
                             </div>
 
-                            {/* Overlay z opisem */}
+                            {/* Overlay with description */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                                 <span className="text-[#FF4D00] text-xs font-bold uppercase tracking-widest mb-1">{project.cat}</span>
                                 <h3 className="font-oswald text-2xl font-bold uppercase">{project.title}</h3>

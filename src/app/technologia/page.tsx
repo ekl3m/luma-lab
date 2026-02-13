@@ -19,10 +19,10 @@ export default function TechnologiaPage() {
                     </p>
                 </motion.div>
 
-                {/* Lista Sprzętu */}
+                {/* Machine list */}
                 <div className="space-y-12">
 
-                    {/* Maszyna 1: Laser CO2 */}
+                    {/* Machine 1: CO2 Laser */}
                     <MachineCard
                         name="Ploter Laserowy CO2 100W"
                         spec="Prędkość: 500mm/s | Pole: 600x400mm+ | Oś Obrotowa"
@@ -30,7 +30,7 @@ export default function TechnologiaPage() {
                         side="left"
                     />
 
-                    {/* Maszyna 2: Drukarki */}
+                    {/* Machine 2: 3D Printers */}
                     <MachineCard
                         name="Drukarki Bambu Lab X1C"
                         spec="Prędkość: 500mm/s | Multi-Color (AMS) | Lidar"
@@ -38,7 +38,7 @@ export default function TechnologiaPage() {
                         side="right"
                     />
 
-                    {/* Maszyna 3: Workstation */}
+                    {/* Machine 3: Workstation */}
                     <MachineCard
                         name="Stacja Projektowania CAD"
                         spec="Ryzen 9 | RX 9070 XT | 64GB RAM"

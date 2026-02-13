@@ -2,20 +2,18 @@
 
 @layer components {
   :root {
-    /* 1. Definiujemy Paletę Luma Lab */
+    /* 1. Define LUMA LAB pallette */
     --color-carbon: #1E2022;
     --color-ivory: #F5F3EE;
     --color-laser: #FF4D00;
 
-    /* 2. Podpinamy Fonty z Next.js */
-    /* To mapuje zmienną CSS z layout.tsx na klasę font-oswald */
+    /* 2. Hook up fonts from Next.js */
     --font-oswald: var(--font-oswald);
     --font-sans: var(--font-inter);
   }
 }
 
-/* 3. Domyślny styl strony */
-/* Używamy zmiennych zdefiniowanych wyżej */
+/* 3. Default styles */
 body {
   background-color: var(--color-carbon);
   color: var(--color-ivory);

@@ -4,7 +4,6 @@ import Logo from "@/components/Logo";
 import { motion, easeOut } from "framer-motion";
 import Link from "next/link";
 
-// Definicje animacji (bez zmian)
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: easeOut } }
@@ -36,9 +35,14 @@ export default function Home() {
             <Logo className="w-full h-full" />
           </div>
 
-          {/* ZMIANA NA POLSKI */}
-          <h1 className="font-oswald text-6xl md:text-9xl font-bold uppercase tracking-tighter leading-none text-center">
-            LICZY SIĘ <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F5F3EE] to-[#999] pr-4 pb-2">PRECYZJA</span>
+          <h1 className="font-oswald text-6xl md:text-9xl font-bold uppercase tracking-normal leading-none flex flex-col items-center">
+            <span className="text-[#F5F3EE]">
+              LICZY SIĘ
+            </span>
+
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F5F3EE] to-[#999] pb-2 px-2">
+              PRECYZJA
+            </span>
           </h1>
 
           <p className="mt-6 text-xl md:text-2xl font-light tracking-[0.3em] uppercase text-[#FF4D00]">
@@ -60,12 +64,12 @@ export default function Home() {
           </motion.div>
         </motion.div>
 
-        {/* Tło Hero */}
+        {/* Hero background */}
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5 pointer-events-none" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#FF4D00] rounded-full blur-[150px] opacity-[0.08] pointer-events-none" />
       </section>
 
-      {/* --- SEKCJA 2: OFERTA (3 FILARY) --- */}
+      {/* --- SECTION 2: OFFER --- */}
       <section className="py-24 px-6 bg-[#181a1b]">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -75,11 +79,10 @@ export default function Home() {
             variants={staggerContainer}
             className="grid grid-cols-1 md:grid-cols-3 gap-8"
           >
-            {/* TŁUMACZENIE KART */}
             <ServiceCard
               num="01"
               title="Cięcie Laserem"
-              desc="Precyzyjna obróbka materiałów organicznych. Idealne krawędzie bez dodatkowej obróbki. Detal to podstawa."
+              desc="Precyzyjna obróbka materiałów organicznych lub wybranych metalowych. Idealne krawędzie bez dodatkowej obróbki. Detal to podstawa."
             />
             <ServiceCard
               num="02"
@@ -95,7 +98,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- SEKCJA 3: LICZBY --- */}
+      {/* --- SECTION 3: NUMBERS --- */}
       <section className="py-32 px-6 border-y border-white/5 bg-[#1E2022] relative overflow-hidden">
         <motion.div
           initial="hidden"
@@ -115,7 +118,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- SEKCJA 4: CTA --- */}
+      {/* --- SECTION 4: CTA --- */}
       <section className="py-32 flex flex-col items-center text-center px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -125,7 +128,7 @@ export default function Home() {
         >
           Masz projekt? <span className="text-[#FF4D00]">Zrealizujmy go.</span>
         </motion.h2>
-        <Link href="/kontakt" className="px-12 py-6 bg-[#F5F3EE] text-[#1E2022] font-oswald font-bold text-xl uppercase tracking-widest hover:bg-[#FF4D00] hover:text-white transition-all duration-300 shadow-xl">
+        <Link href="/wycena" className="px-12 py-6 bg-[#F5F3EE] text-[#1E2022] font-oswald font-bold text-xl uppercase tracking-widest hover:bg-[#FF4D00] hover:text-white transition-all duration-300 shadow-xl">
           Darmowa Wycena
         </Link>
       </section>
@@ -134,7 +137,7 @@ export default function Home() {
   );
 }
 
-// Komponenty pomocnicze bez zmian logicznych, tylko nazwy zmiennych
+// Helper components
 function ServiceCard({ num, title, desc }: { num: string, title: string, desc: string }) {
   return (
     <motion.div variants={fadeInUp} className="group p-8 border border-white/10 bg-white/5 hover:bg-[#FF4D00] transition-colors duration-500 cursor-default">
