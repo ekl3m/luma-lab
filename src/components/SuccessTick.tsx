@@ -6,9 +6,6 @@ export default function SuccessTick() {
     return (
         <div className="flex justify-center items-center mb-6">
             <div className="relative w-24 h-24 flex items-center justify-center">
-
-                
-
                 {/* SVG with self-drawing path */}
                 <svg
                     width="100"

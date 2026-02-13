@@ -8,9 +8,27 @@ function generateTicketId() {
     return `#LL-${timestamp}${random}`;
 }
 
+function getPolishErrorMessage(error: any): string {
+    const message = (error?.message || "").toLowerCase();
+
+    if (message.includes('api') || message.includes('unauthorized')) {
+        return 'Błąd wewnętrzny systemu (błąd autoryzacji). Skontaktuj się z nami bezpośrednio: kontakt@lumalab.pl';
+    }
+    if (message.includes('requests')) {
+        return 'Za dużo prób wysłania wiadomości. Odczekaj chwilę.';
+    }
+    if (message.includes('domain')) {
+        return 'Błąd konfiguracji domeny pocztowej. Skontaktuj się z nami bezpośrednio: kontakt@lumalab.pl';
+    }
+    if (message.includes('invalid')) {
+        return 'Wprowadzono nieprawidłowe dane w formularzu.';
+    }
+    return 'Wystąpił nieoczekiwany błąd podczas wysyłania. Spróbuj ponownie lub napisz na kontakt@lumalab.pl';
+}
+
 export async function sendEmail(prevState: any, formData: FormData) {
     const apiKey = process.env.RESEND_API_KEY;
-    if (!apiKey) return { success: false, error: 'Błąd konfiguracji API.' };
+    if (!apiKey) return { success: false, error: getPolishErrorMessage({ message: 'Brak klucza API' }) };
 
     const resend = new Resend(apiKey);
     const ticketId = generateTicketId();
@@ -24,7 +42,9 @@ export async function sendEmail(prevState: any, formData: FormData) {
     const technology = formData.get('technology') as string || "Nie dotyczy";
     const fileLink = formData.get('fileLink') as string || "Brak";
 
-    if (!email || !message) return { success: false, error: 'Wypełnij pola.' };
+    if (!email || !message) {
+        return { success: false, error: 'Niewystarczająca ilość danych w polach formularza.' };
+    }
 
     try {
         // ADMIN EMAIL HTML
@@ -110,22 +130,30 @@ export async function sendEmail(prevState: any, formData: FormData) {
             </html>
         `;
 
-        // Sending email to Admin
-        await resend.emails.send({
-            from: 'Luma Lab System <kontakt@lumalab.pl>',
-            to: ['info@sportekspert.com.pl'],
-            replyTo: email,
-            subject: `[${ticketId}] LUMA LAB: ${subject}`,
-            html: adminHtml,
-        });
-
         // Sending confirmation email to Client
-        await resend.emails.send({
+        const clientResult = await resend.emails.send({
             from: 'Luma Lab <kontakt@lumalab.pl>',
             to: [email],
             subject: `Otrzymaliśmy Twoją wiadomość: ${ticketId}`,
             html: clientHtml,
         });
+
+        if (clientResult.error) {
+            return { success: false, error: getPolishErrorMessage(clientResult.error) };
+        }
+
+        // Sending email to Admin
+        const adminResult = await resend.emails.send({
+            from: 'Luma Lab System <kontakt@lumalab.pl>',
+            to: ['info@sportekspert.com.pl', 'sq.programs@gmail.com'],
+            replyTo: email,
+            subject: `[${ticketId}] LUMA LAB: ${subject}`,
+            html: adminHtml,
+        });
+
+        if (adminResult.error) {
+            return { success: false, error: "Błąd serwera przy rejestrowaniu zgłoszenia w systemie. Spróbuj ponownie lub skontaktuj się z nami bezpośrednio: kontakt@lumalab.pl" };
+        }
 
         return { success: true, message: 'Wysłano!', ticketId };
     } catch (e: any) {
