@@ -18,8 +18,26 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Luma Lab",
-  description: "Laser cutting & engineering",
+  metadataBase: new URL('https://lumalab.pl'),
+  title: {
+    default: 'LUMA LAB - Inżynieria & Design',
+    template: '%s | LUMA LAB', 
+  },
+  description: 'Profesjonalne usługi inżynierskie w Łodzi. Druk 3D, projektowanie CAD, inżynieria odwrotna i CNC. Realizujemy projekty od pomysłu do gotowego produktu.',
+  keywords: ['Druk 3D', 'Inżynieria Odwrotna', 'Projektowanie CAD', 'CNC', 'Łódź', 'Prototypowanie', 'Luma Lab', 'Cięcie Laserem', 'Usługi Inżynierskie', 'LumaLab', 'Luma', 'Luma Lab Łódź', 'Luma Lab Druk 3D', 'Luma Lab CAD', 'Luma Lab CNC'],
+  authors: [{ name: 'Luma Lab Team' }],
+  openGraph: {
+    title: 'Luma Lab - Precision Engineering',
+    description: 'Twoja wizja, nasza precyzja. Usługi inżynierskie, Druk 3D i Prototypowanie.',
+    url: 'https://lumalab.pl',
+    siteName: 'Luma Lab',
+    locale: 'pl_PL',
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
