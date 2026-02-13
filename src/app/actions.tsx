@@ -5,7 +5,7 @@ import { Resend } from 'resend';
 function generateTicketId() {
     const timestamp = Date.now().toString(36).toUpperCase().slice(-4);
     const random = Math.random().toString(36).toUpperCase().slice(-2);
-    return `LL-${timestamp}${random}`;
+    return `#LL-${timestamp}${random}`;
 }
 
 export async function sendEmail(prevState: any, formData: FormData) {
@@ -83,14 +83,15 @@ export async function sendEmail(prevState: any, formData: FormData) {
             <head><meta charset="UTF-8"></head>
             <body style="background-color: #1E2022; font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; margin: 0; padding: 0;">
                 <div style="margin: 0 auto; padding: 40px 20px; max-width: 560px;">
-                    <div style="padding: 20px 0; text-align: center;">
-                        <div style="display: inline-block; vertical-align: middle;">
-                            <img src="https://lumalab.pl/logoWhite.png" width="45" height="45" alt="Logo" style="display: block; margin-right: 8px; float: left;" />
-                            <span style="font-size: 26px; font-weight: bold; color: #F5F3EE; letter-spacing: 1px; line-height: 45px; float: left;">
-                                LUMA <span style="color: #FF4D00;">LAB</span>
-                            </span>
-                            <div style="clear: both;"></div>
-                        </div>
+                    <div style="padding: 30px 0; text-align: center;">
+                        <a href="https://lumalab.pl" target="_blank" style="text-decoration: none;">
+                            <img
+                                src="https://lumalab.pl/logoBanner.png"
+                                width="280"
+                                alt="Luma Lab Logo"
+                                style="display: inline-block; border: 0; outline: none; text-decoration: none; margin: 0 auto;"
+                            />
+                        </a>
                     </div>
                     <h1 style="color: #F5F3EE; font-size: 24px; font-weight: bold; text-align: center; margin: 30px 0; text-transform: uppercase; letter-spacing: 2px;">Zgłoszenie Przyjęte</h1>
                     <p style="color: #cccccc; font-size: 16px; line-height: 26px;">Cześć <strong>${name}</strong>,</p>
